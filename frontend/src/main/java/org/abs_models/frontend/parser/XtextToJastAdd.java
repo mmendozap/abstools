@@ -900,7 +900,8 @@ public class XtextToJastAdd {
 
             org.abs_models.xtext.abs.NewExpression xtextExp = (org.abs_models.xtext.abs.NewExpression)value;
             NewExp exp = new NewExp();
-            exp.setClassName(xtextExp.getClassname());
+            // TODO handle fully-qualified class names
+            exp.setClassName(xtextExp.getClass_().getName());
             for(org.abs_models.xtext.abs.Expression e : xtextExp.getArguments()) {
                 exp.addParamNoTransform(pureExpFromXtext(e));
             }
